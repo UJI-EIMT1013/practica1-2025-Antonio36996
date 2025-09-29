@@ -8,20 +8,26 @@ public class Practica1 {
     public static Set<Integer> multiplos (Iterator<Integer> it) {
         Set<Integer> multiplos = new HashSet<>();
 
+        List<Integer> numeros = new ArrayList<>();
+
         while (it.hasNext()) {
             int n1 = it.next();
-            while (it.hasNext()) {
-                int n2 = it.next();
-                if (n1 % n2 != 0) {
-                    multiplos.add(n1);
+            if (n1 != 0) {
+                numeros.add(n1);
+            }
+        }
+
+        for (Integer num : numeros) {
+            for (Integer divisor : numeros) {
+                if (!num.equals(divisor) && num % divisor != 0) {
+                    multiplos.add(num);
                     break;
                 }
             }
-
         }
+
         return multiplos;
         //TODO
-        return null;
     }
 
     //EJERCICIO2
